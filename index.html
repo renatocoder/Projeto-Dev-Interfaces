@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jiu‑Jitsu Flow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Canvas para partículas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- HEADER -->
+    <header class="app-header">
+        <div class="logo">⚡ Jiu<span>Flow</span></div>
+        <ul class="nav-links" id="navLinks">
+            <!-- Links injetados pelo JavaScript -->
+        </ul>
+        <div style="display:flex; gap:0.8rem; align-items:center;">
+            <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">🌙</button>
+            <div class="menu-hamburger" id="menuToggle">☰</div>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="app-main" id="appMain">
+        <!-- Conteúdo renderizado pelo JavaScript -->
+    </main>
+
+    <!-- MODAL DE VÍDEO -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+            <button class="close-modal" id="closeModal">✕</button>
+            <div class="video-title" id="videoTitle">Técnica</div>
+            <iframe id="videoIframe" src="" allowfullscreen loading="lazy"></iframe>
+            <div class="video-actions">
+                <button id="focusModeBtn">🎯 Modo Foco</button>
+                <button id="xpGainBtn" style="background:var(--accent);color:#fff;border-color:var(--accent);">+10 XP ao assistir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="app-footer">
+        <p>⚡ Jiu‑Jitsu Flow | Evolua com técnica e mente</p>
+        <p class="small">© 2025 – Feito com 🥋 e paixão</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
