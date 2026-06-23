@@ -1,0 +1,786 @@
+/* ============================================
+   CSS GLOBAL – variáveis (claro/escuro)
+   ============================================ */
+:root {
+    --font: 'Inter', system-ui, -apple-system, sans-serif;
+    --radius: 16px;
+    --transition: 0.3s cubic-bezier(.4, 0, .2, 1);
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.18);
+}
+
+[data-theme="light"] {
+    --bg-primary: #F4F4F4;
+    --bg-secondary: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --bg-header: #1A2F4C;
+    --bg-footer: #1A2F4C;
+    --text-primary: #222222;
+    --text-secondary: #444444;
+    --text-header: #FFFFFF;
+    --accent: #E67E22;
+    --accent-hover: #D35400;
+    --border: #E0E0E0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --input-bg: #FFFFFF;
+    --input-border: #CCCCCC;
+    --modal-overlay: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="dark"] {
+    --bg-primary: #121212;
+    --bg-secondary: #1E1E1E;
+    --bg-card: #2A2A2A;
+    --bg-header: #0D1B2A;
+    --bg-footer: #0D1B2A;
+    --text-primary: #E8E8E8;
+    --text-secondary: #AAAAAA;
+    --text-header: #FFFFFF;
+    --accent: #F39C12;
+    --accent-hover: #E67E22;
+    --border: #333333;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --input-bg: #2A2A2A;
+    --input-border: #444444;
+    --modal-overlay: rgba(0, 0, 0, 0.85);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background var(--transition), color var(--transition);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ============================================
+   HEADER / NAV
+   ============================================ */
+.app-header {
+    background: var(--bg-header);
+    color: var(--text-header);
+    padding: 0.8rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 15px var(--shadow-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    flex-wrap: wrap;
+    transition: background var(--transition);
+    gap: 1rem;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.header-actions {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.8rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: var(--text-header);
+    font-weight: 600;
+    transition: color var(--transition);
+    padding: 0.3rem 0;
+    border-bottom: 2px solid transparent;
+    font-size: 0.95rem;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+.nav-links .btn-logout {
+    background: var(--accent);
+    border: none;
+    padding: 0.4rem 1.4rem;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+    font-size: 0.9rem;
+}
+
+.nav-links .btn-logout:hover {
+    background: var(--accent-hover);
+    transform: scale(1.04);
+}
+
+.theme-toggle {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: #fff;
+    font-size: 1.4rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background var(--transition);
+    line-height: 1;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.menu-hamburger {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--text-header);
+    background: none;
+    border: none;
+}
+
+/* ============================================
+   MAIN
+   ============================================ */
+.app-main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   AUTH (Login / Cadastro)
+   ============================================ */
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.auth-card {
+    background: var(--bg-card);
+    padding: 2.5rem 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 420px;
+    transition: background var(--transition), box-shadow var(--transition);
+}
+
+.auth-card:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.auth-card h2 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    text-align: center;
+    font-size: 1.8rem;
+    border-left: none;
+    padding-left: 0;
+}
+
+.auth-card .subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 1.8rem;
+    font-size: 0.95rem;
+}
+
+.auth-card label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.auth-card input {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 2px solid var(--input-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: var(--input-bg);
+    color: var(--text-primary);
+    transition: border var(--transition), box-shadow var(--transition);
+    margin-bottom: 1.2rem;
+}
+
+.auth-card input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(230, 126, 34, 0.2);
+}
+
+.auth-card .btn-primary {
+    width: 100%;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+    margin-top: 0.5rem;
+}
+
+.auth-card .btn-primary:hover {
+    background: var(--accent-hover);
+    transform: scale(1.01);
+}
+
+.auth-card .auth-switch {
+    text-align: center;
+    margin-top: 1.2rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.auth-card .auth-switch a {
+    color: var(--accent);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.auth-card .auth-switch a:hover {
+    text-decoration: underline;
+}
+
+.msg-error,
+.msg-success {
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: none;
+    font-size: 0.9rem;
+}
+
+.msg-error {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.msg-success {
+    background: #d4edda;
+    color: #155724;
+}
+
+/* ============================================
+   PÁGINAS INTERNAS
+   ============================================ */
+.page-title {
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    border-left: 6px solid var(--accent);
+    padding-left: 1rem;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.hero-banner {
+    background: linear-gradient(135deg, var(--bg-header) 0%, #1A3A5C 100%);
+    color: #fff;
+    padding: 3rem 2rem;
+    border-radius: var(--radius);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.hero-banner h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.hero-banner h1 span {
+    color: var(--accent);
+}
+
+.hero-banner p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* ============================================
+   CARDS DAS FAIXAS
+   ============================================ */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.card-item {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+    border: 1px solid var(--border);
+}
+
+.card-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card-item .faixa-img {
+    width: 100%;
+    max-height: 130px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 0.8rem;
+    border: 2px solid var(--border);
+}
+
+.card-item h3 {
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 0.3rem;
+    font-size: 1.2rem;
+}
+
+.card-item .tempo {
+    display: block;
+    text-align: center;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin: 0.3rem 0 0.8rem;
+}
+
+.card-item ul {
+    list-style: none;
+    padding: 0;
+}
+
+.card-item ul li {
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: color var(--transition);
+}
+
+.card-item ul li:last-child {
+    border-bottom: none;
+}
+
+.card-item ul li::before {
+    content: "▸";
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.card-item ul li .play-icon {
+    margin-left: auto;
+    color: var(--accent);
+    font-size: 1.2rem;
+    transition: transform var(--transition);
+}
+
+.card-item ul li:hover .play-icon {
+    transform: scale(1.3);
+}
+
+.card-item ul li:hover {
+    color: var(--accent);
+}
+
+/* ============================================
+   PROMOÇÃO
+   ============================================ */
+.promo-box {
+    background: var(--bg-header);
+    color: #fff;
+    padding: 2rem;
+    border-radius: var(--radius);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.promo-box h3 {
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.promo-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.promo-box ul li {
+    padding: 0.3rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.promo-box ul li::before {
+    content: "⏳";
+    margin-right: 0.5rem;
+}
+
+.promo-box .dica {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    border-left: 4px solid var(--accent);
+}
+
+/* ============================================
+   BENEFÍCIOS
+   ============================================ */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.benefit-item {
+    background: var(--bg-card);
+    text-align: center;
+    padding: 1.5rem 1rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+    border: 1px solid var(--border);
+}
+
+.benefit-item:hover {
+    transform: scale(1.03);
+    box-shadow: var(--shadow-hover);
+}
+
+.benefit-item .emoji {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.btn-link {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 0.8rem 2.4rem;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: background var(--transition), transform var(--transition);
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-link:hover {
+    background: var(--accent-hover);
+    transform: scale(1.03);
+}
+
+.btn-center {
+    text-align: center;
+    margin-top: 1.8rem;
+}
+
+/* ============================================
+   CARROSSEL
+   ============================================ */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 2rem auto;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: var(--bg-header);
+}
+
+.carousel-slides {
+    display: flex;
+    transition: transform 0.6s ease;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1A2F4C;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 1rem 0.8rem;
+    cursor: pointer;
+    font-size: 1.8rem;
+    transition: background var(--transition);
+    z-index: 10;
+    line-height: 1;
+    backdrop-filter: blur(4px);
+}
+
+.carousel-btn.prev {
+    left: 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.carousel-btn.next {
+    right: 0;
+    border-radius: 8px 0 0 8px;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.6rem;
+    z-index: 10;
+}
+
+.carousel-indicators .dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.carousel-indicators .dot.active {
+    background: var(--accent);
+    border-color: #fff;
+    transform: scale(1.2);
+}
+
+.carousel-indicators .dot:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* ============================================
+   MODAL DE VÍDEO
+   ============================================ */
+.video-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--modal-overlay);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+}
+
+.video-modal.open {
+    display: flex;
+}
+
+.video-modal-content {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    max-width: 800px;
+    width: 92%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.video-modal-content .close-modal {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    font-size: 1.8rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.video-modal-content .close-modal:hover {
+    transform: rotate(90deg);
+}
+
+.video-modal-content iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border: none;
+    border-radius: 10px;
+}
+
+.video-modal-content .video-title {
+    color: var(--text-primary);
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.app-footer {
+    background: var(--bg-footer);
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    transition: background var(--transition);
+}
+
+.app-footer .small {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* ============================================
+   RESPONSIVO
+   ============================================ */
+@media (max-width: 768px) {
+    .app-header {
+        padding: 0.8rem 1rem;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: var(--bg-header);
+        padding: 1rem 0;
+        gap: 1rem;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        box-shadow: var(--shadow);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .menu-hamburger {
+        display: block;
+    }
+
+    .hero-banner h1 {
+        font-size: 2rem;
+    }
+
+    .promo-box {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .app-main {
+        padding: 1rem;
+    }
+
+    .carousel-btn {
+        padding: 0.6rem 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .carousel-indicators .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-card {
+        padding: 1.5rem 1rem;
+    }
+}
