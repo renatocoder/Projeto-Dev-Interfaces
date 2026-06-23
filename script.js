@@ -220,9 +220,8 @@ function pageHome() {
         </div>
     `;
 }
-
 /**
- * Página Faixas (com carrossel e vídeos)
+ * Página Faixas (com carrossel e vídeos com links externos)
  */
 function pageFaixas() {
     // Carrossel: apenas 3 imagens (rolamento + 2 novas)
@@ -240,39 +239,224 @@ function pageFaixas() {
         `<span class="dot ${i===0?'active':''}" data-index="${i}"></span>`
     ).join('');
 
-    // Gerar cards com vídeos
+    // Dados das faixas com links externos
+    const faixasData = [
+        {
+            nome: 'Branca',
+            img: 'https://cdn.shopify.com/s/files/1/2776/7470/articles/faixxa_1024x1024.jpg?v=1547833767',
+            tempo: '6 meses - 2 anos',
+            posicoes: [
+                { 
+                    nome: 'Fechar a Guarda', 
+                    link: 'https://www.lowkickmma.com/closed-guard/',
+                    fonte: 'LowKickMMA.com'
+                },
+                { 
+                    nome: 'Escapar da Montada', 
+                    link: 'https://www.youtube.com/watch?v=4J75b9zFdgM',
+                    fonte: 'YouTube'
+                },
+                { 
+                    nome: 'Rasteira Básica (Scissor Sweep)', 
+                    link: 'https://www.akban.org/wiki/Scissor_sweep',
+                    fonte: 'Akban'
+                },
+                { 
+                    nome: 'Manter a Guarda Fechada', 
+                    link: 'https://www.lowkickmma.com/closed-guard/',
+                    fonte: 'LowKickMMA.com'
+                },
+                { 
+                    nome: 'Defesas de Finalizações', 
+                    link: 'https://www.martialdevotee.com/articles/escape-mount-position-in-bjj',
+                    fonte: 'martialdevotee.com'
+                }
+            ]
+        },
+        {
+            nome: 'Azul',
+            img: 'https://images.tcdn.com.br/img/editor/up/860336/paraserumbomfaixaazuldejiujitsumeukimono.jpg',
+            tempo: '2 - 4 anos',
+            posicoes: [
+                { 
+                    nome: 'Guarda Aberta (De La Riva)', 
+                    link: 'https://bjjweb.com/resources/how-and-when-to-use-de-la-riva-guard',
+                    fonte: 'bjjweb'
+                },
+                { 
+                    nome: 'Passagem de Guarda', 
+                    link: 'https://www.graciebarra.com/gb-news/gb-technique-attacks-from-closed-guard/',
+                    fonte: 'Gracie Barra'
+                },
+                { 
+                    nome: 'Raspagem (Sweep)', 
+                    link: 'https://bjjtribes.com/2021/12/09/how-to-do-the-scissor-sweep-in-bjj/',
+                    fonte: 'bjjtribes.com'
+                },
+                { 
+                    nome: 'Mata-Leão', 
+                    link: 'https://www.youtube.com/results?search_query=rear+naked+choke+bjj+tutorial',
+                    fonte: 'YouTube'
+                },
+                { 
+                    nome: 'Montada com Controle', 
+                    link: 'https://www.martialdevotee.com/articles/escape-mount-position-in-bjj',
+                    fonte: 'martialdevotee.com'
+                }
+            ]
+        },
+        {
+            nome: 'Roxa',
+            img: 'https://pratiquefitness.com.br/wp-content/uploads/2019/07/Tudo-sobre-o-jiu-jitsu-faixa-roxa-1.jpg',
+            tempo: '3 - 5 anos',
+            posicoes: [
+                { 
+                    nome: 'Guarda Spider', 
+                    link: 'https://www.youtube.com/results?search_query=spider+guard+bjj+tutorial',
+                    fonte: 'YouTube'
+                },
+                { 
+                    nome: 'Meia-Guarda Profunda', 
+                    link: 'https://www.youtube.com/results?search_query=deep+half+guard+bjj+tutorial',
+                    fonte: 'YouTube'
+                },
+                { 
+                    nome: 'Berimbolo', 
+                    link: 'https://bjj-video-analyzer.com/techniques/detail/berimbolo/',
+                    fonte: 'BJJ Video Analyzer'
+                },
+                { 
+                    nome: 'Chave de Braço do Topo', 
+                    link: 'https://www.youtube.com/results?search_query=armbar+from+mount+bjj+tutorial',
+                    fonte: 'YouTube'
+                },
+                { 
+                    nome: 'Transições Fluidas', 
+                    link: 'https://www.youtube.com/results?search_query=bjj+transitions+drills',
+                    fonte: 'YouTube'
+                }
+            ]
+        },
+        {
+            nome: 'Marrom',
+            img: 'https://pratiquefitness.com.br/wp-content/uploads/2019/07/Tudo-sobre-o-jiu-jitsu-faixa-marrom-2.jpg',
+            tempo: '1 - 2 anos (pós-roxa)',
+            posicoes: [
+                { 
+                    nome: 'Tesoura de Mão', 
+                    link: 'https://www.youtube.com/results?search_query=baseball+bat+choke+bjj',
+                    fonte: 'YouTube'
+                },
+                { 
+                    nome: 'Tornozeleira (Straight Ankle Lock)', 
+                    link: 'https://www.youtube.com/results?search_query=straight+ankle+lock+bjj',
+                    fonte: 'YouTube'
+                },
+                { 
+                    nome: 'Americana / Omoplata', 
+                    link: 'https://www.youtube.com/results?search_query=americana+omoplata+bjj',
+                    fonte: 'YouTube'
+                },
+                { 
+                    nome: 'Passagem Flutuante (Float Pass)', 
+                    link: 'https://www.youtube.com/results?search_query=float+pass+bjj',
+                    fonte: 'YouTube'
+                },
+                { 
+                    nome: 'Ataques pelas Costas', 
+                    link: 'https://www.youtube.com/results?search_query=back+attacks+bjj',
+                    fonte: 'YouTube'
+                }
+            ]
+        },
+        {
+            nome: 'Preta',
+            img: 'http://www.graciemag.com/wp-content/uploads/2017/01/Amarrando-faixa-preta-Foto-Araga-1.jpg',
+            tempo: '10+ anos',
+            posicoes: [
+                { 
+                    nome: 'Guarda 50/50', 
+                    link: 'https://www.youtube.com/results?search_query=50+50+guard+bjj',
+                    fonte: 'YouTube'
+                },
+                { 
+                    nome: 'Chave Cruzada de Baixo', 
+                    link: 'https://www.youtube.com/results?search_query=cross+collar+choke+from+guard',
+                    fonte: 'YouTube'
+                },
+                { 
+                    nome: 'Joelho na Barriga', 
+                    link: 'https://www.youtube.com/results?search_query=knee+on+belly+bjj',
+                    fonte: 'YouTube'
+                },
+                { 
+                    nome: 'Smash Pass', 
+                    link: 'https://www.youtube.com/results?search_query=smash+pass+bjj',
+                    fonte: 'YouTube'
+                },
+                { 
+                    nome: 'Heel Hook', 
+                    link: 'https://www.youtube.com/results?search_query=heel+hook+bjj',
+                    fonte: 'YouTube'
+                }
+            ]
+        }
+    ];
+
+    // Gerar cards com links externos
     let cardsHTML = faixasData.map(faixa => {
-        let posicoesHTML = faixa.posicoes.map((p, idx) =>
-            `<li data-video="${p.video}" data-title="${faixa.nome} - ${p.nome}">
-                        ${p.nome}
-                        <span class="play-icon">▶</span>
-                    </li>`
+        let posicoesHTML = faixa.posicoes.map((p) =>
+            `<li>
+                <a href="${p.link}" target="_blank" rel="noopener noreferrer" 
+                   style="display:flex; align-items:center; justify-content:space-between; width:100%; 
+                          color:var(--text-primary); text-decoration:none; padding:0.2rem 0;">
+                    <span>${p.nome}</span>
+                    <span style="display:flex; align-items:center; gap:0.5rem; font-size:0.75rem; 
+                                 color:var(--accent); font-weight:500; white-space:nowrap;">
+                        ▶ ${p.fonte}
+                    </span>
+                </a>
+            </li>`
         ).join('');
+        
         return `
-                    <div class="card-item">
-                        <img src="${faixa.img}" alt="Faixa ${faixa.nome}" class="faixa-img">
-                        <h3>Faixa ${faixa.nome}</h3>
-                        <span class="tempo">⏱ ${faixa.tempo}</span>
-                        <ul>${posicoesHTML}</ul>
-                    </div>
-                `;
+            <div class="card-item">
+                <img src="${faixa.img}" alt="Faixa ${faixa.nome}" class="faixa-img">
+                <h3>Faixa ${faixa.nome}</h3>
+                <span class="tempo">⏱ ${faixa.tempo}</span>
+                <ul style="list-style:none; padding:0; margin:0;">${posicoesHTML}</ul>
+            </div>
+        `;
     }).join('');
 
     return `
-                <h2 class="page-title">🥋 Sistema de Graduação</h2>
-                <p style="margin-bottom:1.5rem;">Clique no ícone ▶ ao lado de cada posição para assistir ao vídeo da técnica.</p>
+        <h2 class="page-title">🥋 Sistema de Graduação</h2>
+        <p style="margin-bottom:1.5rem; color:var(--text-secondary);">
+            Clique no link de cada técnica para acessar o tutorial completo. 
+            Materiais de referência de fontes reconhecidas na comunidade do Jiu-Jitsu.
+        </p>
 
-                <div class="carousel-container" id="carousel">
-                    <div class="carousel-slides" id="carouselSlides">${slidesHTML}</div>
-                    <button class="carousel-btn prev" id="carouselPrev">‹</button>
-                    <button class="carousel-btn next" id="carouselNext">›</button>
-                    <div class="carousel-indicators" id="carouselIndicators">${dotsHTML}</div>
-                </div>
+        <div class="carousel-container" id="carousel">
+            <div class="carousel-slides" id="carouselSlides">${slidesHTML}</div>
+            <button class="carousel-btn prev" id="carouselPrev">‹</button>
+            <button class="carousel-btn next" id="carouselNext">›</button>
+            <div class="carousel-indicators" id="carouselIndicators">${dotsHTML}</div>
+        </div>
 
-                <div class="card-grid">${cardsHTML}</div>
-            `;
+        <div class="card-grid">${cardsHTML}</div>
+
+        <!-- Nota sobre os vídeos -->
+        <div style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--bg-card); border-radius:var(--radius); 
+                    border-left:4px solid var(--accent); box-shadow:var(--shadow);">
+            <p style="font-size:0.9rem; color:var(--text-secondary); line-height:1.6;">
+                <strong style="color:var(--accent);">💡 Recomendação:</strong> 
+                Para um aprendizado mais aprofundado, sugerimos buscar vídeos de canais renomados como 
+                <strong>Gracie Barra</strong>, <strong>Alliance Jiu Jitsu</strong>, <strong>BJJ Fanatics</strong>, 
+                <strong>Lachlan Giles</strong>, <strong>Roger Gracie</strong> e <strong>Andre Galvao</strong>.
+            </p>
+        </div>
+    `;
 }
-
 /**
  * Página Promoção (Troca de Faixa)
  */
