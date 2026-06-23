@@ -310,31 +310,165 @@ function pagePromocao() {
 }
 
 /**
- * Página Benefícios
+ * Página Benefícios com evidências científicas
  */
 function pageBeneficios() {
-    const beneficios = [
-        { emoji: '💪', titulo: 'Condicionamento', desc: 'Força, resistência e flexibilidade' },
-        { emoji: '🧠', titulo: 'Disciplina Mental', desc: 'Foco, paciência e controle emocional' },
-        { emoji: '🛡️', titulo: 'Defesa Pessoal', desc: 'Técnicas reais para situações de risco' },
-        { emoji: '🤝', titulo: 'Comunidade', desc: 'Amizades, respeito e hierarquia' },
-        { emoji: '😌', titulo: 'Redução de Estresse', desc: 'Alivia ansiedade e melhora o sono' },
-        { emoji: '🧩', titulo: 'Resolução de Problemas', desc: 'Pensamento rápido e estratégico' },
-    ];
-    let itemsHTML = beneficios.map(b =>
-        `<div class="benefit-item"><div class="emoji">${b.emoji}</div><h3>${b.titulo}</h3><p>${b.desc}</p></div>`
-    ).join('');
     return `
-                <h2 class="page-title">✅ Benefícios do Jiu-Jitsu</h2>
-                <div class="benefits-grid">${itemsHTML}</div>
-                <div class="btn-center">
-                    <a href="https://www.atletis.com.br/jiu-jitsu" target="_blank" class="btn-link">
-                        Quero saber mais →
-                    </a>
-                </div>
-            `;
-}
+        <h2 class="page-title">✅ Benefícios do Jiu-Jitsu Baseados em Evidências Científicas</h2>
 
+        <!-- Benefício 1 -->
+        <div class="benefit-item" style="margin-bottom:2rem; padding:1.5rem; background:var(--bg-card); border-radius:var(--radius); border-left:6px solid var(--accent);">
+            <div style="display:flex; align-items:flex-start; gap:1.5rem; flex-wrap:wrap;">
+                <div style="font-size:3rem;">💪</div>
+                <div style="flex:1;">
+                    <h3 style="color:var(--text-primary); margin-bottom:0.5rem;">Condicionamento Físico</h3>
+                    <p style="color:var(--text-secondary); line-height:1.7;">
+                        O Jiu-Jitsu Brasileiro desenvolve força muscular, resistência cardiorrespiratória e flexibilidade. 
+                        Estudos com atletas de alto nível demonstraram excelentes índices de resistência muscular e condicionamento físico geral.
+                    </p>
+                    <div style="margin-top:0.8rem; display:flex; flex-wrap:wrap; gap:0.8rem;">
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/28194734/" target="_blank" style="color:var(--accent); font-size:0.85rem; text-decoration:underline;">PubMed: 28194734</a>
+                        <a href="https://sportsmedicine-open.springeropen.com/articles/10.1186/s40798-016-0069-5" target="_blank" style="color:var(--accent); font-size:0.85rem; text-decoration:underline;">Sports Medicine Open</a>
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0765159711000025" target="_blank" style="color:var(--accent); font-size:0.85rem; text-decoration:underline;">ScienceDirect</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Benefício 2 -->
+        <div class="benefit-item" style="margin-bottom:2rem; padding:1.5rem; background:var(--bg-card); border-radius:var(--radius); border-left:6px solid var(--accent);">
+            <div style="display:flex; align-items:flex-start; gap:1.5rem; flex-wrap:wrap;">
+                <div style="font-size:3rem;">🧠</div>
+                <div style="flex:1;">
+                    <h3 style="color:var(--text-primary); margin-bottom:0.5rem;">Disciplina Mental</h3>
+                    <p style="color:var(--text-secondary); line-height:1.7;">
+                        A prática regular do Jiu-Jitsu exige foco, autocontrole, paciência e capacidade de adaptação constante. 
+                        O treinamento frequente fortalece habilidades cognitivas relacionadas à tomada de decisão sob pressão.
+                    </p>
+                    <div style="margin-top:0.8rem;">
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/41602804/" target="_blank" style="color:var(--accent); font-size:0.85rem; text-decoration:underline;">PubMed: 41602804</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Benefício 3 -->
+        <div class="benefit-item" style="margin-bottom:2rem; padding:1.5rem; background:var(--bg-card); border-radius:var(--radius); border-left:6px solid var(--accent);">
+            <div style="display:flex; align-items:flex-start; gap:1.5rem; flex-wrap:wrap;">
+                <div style="font-size:3rem;">🛡️</div>
+                <div style="flex:1;">
+                    <h3 style="color:var(--text-primary); margin-bottom:0.5rem;">Defesa Pessoal</h3>
+                    <p style="color:var(--text-secondary); line-height:1.7;">
+                        O Jiu-Jitsu foi desenvolvido para permitir que uma pessoa controle e neutralize um agressor utilizando alavancas, 
+                        posicionamento e técnica, reduzindo a dependência de força bruta. A literatura científica caracteriza o BJJ como 
+                        uma modalidade de grappling focada em controle corporal e submissão do adversário.
+                    </p>
+                    <div style="margin-top:0.8rem; display:flex; flex-wrap:wrap; gap:0.8rem;">
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/28194734/" target="_blank" style="color:var(--accent); font-size:0.85rem; text-decoration:underline;">PubMed: 28194734</a>
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0765159711000025" target="_blank" style="color:var(--accent); font-size:0.85rem; text-decoration:underline;">ScienceDirect</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Benefício 4 -->
+        <div class="benefit-item" style="margin-bottom:2rem; padding:1.5rem; background:var(--bg-card); border-radius:var(--radius); border-left:6px solid var(--accent);">
+            <div style="display:flex; align-items:flex-start; gap:1.5rem; flex-wrap:wrap;">
+                <div style="font-size:3rem;">🤝</div>
+                <div style="flex:1;">
+                    <h3 style="color:var(--text-primary); margin-bottom:0.5rem;">Comunidade e Valores</h3>
+                    <p style="color:var(--text-secondary); line-height:1.7;">
+                        O ambiente do Jiu-Jitsu promove respeito, hierarquia saudável, cooperação e desenvolvimento de vínculos sociais. 
+                        A convivência diária nos treinos favorece o senso de pertencimento e a construção de amizades duradouras.
+                    </p>
+                    <div style="margin-top:0.8rem;">
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/28194734/" target="_blank" style="color:var(--accent); font-size:0.85rem; text-decoration:underline;">PubMed: 28194734</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Benefício 5 -->
+        <div class="benefit-item" style="margin-bottom:2rem; padding:1.5rem; background:var(--bg-card); border-radius:var(--radius); border-left:6px solid var(--accent);">
+            <div style="display:flex; align-items:flex-start; gap:1.5rem; flex-wrap:wrap;">
+                <div style="font-size:3rem;">😌</div>
+                <div style="flex:1;">
+                    <h3 style="color:var(--text-primary); margin-bottom:0.5rem;">Redução do Estresse</h3>
+                    <p style="color:var(--text-secondary); line-height:1.7;">
+                        A combinação de exercício físico intenso, interação social e foco mental contribui para redução dos níveis 
+                        de estresse e ansiedade, além de favorecer o bem-estar psicológico geral. Estudos em esportes de combate 
+                        apontam benefícios importantes para a saúde mental dos praticantes.
+                    </p>
+                    <div style="margin-top:0.8rem;">
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/41602804/" target="_blank" style="color:var(--accent); font-size:0.85rem; text-decoration:underline;">PubMed: 41602804</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Benefício 6 -->
+        <div class="benefit-item" style="margin-bottom:2rem; padding:1.5rem; background:var(--bg-card); border-radius:var(--radius); border-left:6px solid var(--accent);">
+            <div style="display:flex; align-items:flex-start; gap:1.5rem; flex-wrap:wrap;">
+                <div style="font-size:3rem;">🧩</div>
+                <div style="flex:1;">
+                    <h3 style="color:var(--text-primary); margin-bottom:0.5rem;">Resolução de Problemas</h3>
+                    <p style="color:var(--text-secondary); line-height:1.7;">
+                        Cada treino funciona como um desafio estratégico. O praticante precisa analisar situações, antecipar movimentos 
+                        e tomar decisões rápidas em tempo real. Pesquisas recentes encontraram associação entre nível técnico e funções 
+                        cognitivas ligadas à tomada de decisão e adaptação sob pressão.
+                    </p>
+                    <div style="margin-top:0.8rem;">
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/41602804/" target="_blank" style="color:var(--accent); font-size:0.85rem; text-decoration:underline;">PubMed: 41602804</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Referências Científicas -->
+        <div style="margin-top:3rem; padding:2rem; background:var(--bg-header); color:#fff; border-radius:var(--radius);">
+            <h3 style="color:var(--accent); margin-bottom:1.5rem; font-size:1.3rem;">📚 Referências Científicas</h3>
+            <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.8rem;">
+                <li>
+                    <span style="opacity:0.8;">Andreato LV et al.</span>
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/28194734/" target="_blank" style="color:var(--accent); text-decoration:underline; margin-left:0.5rem;">
+                        Physical and Physiological Profiles of Brazilian Jiu-Jitsu Athletes: A Systematic Review
+                    </a>
+                </li>
+                <li>
+                    <span style="opacity:0.8;">Andreato LV et al.</span>
+                    <a href="https://sportsmedicine-open.springeropen.com/articles/10.1186/s40798-016-0069-5" target="_blank" style="color:var(--accent); text-decoration:underline; margin-left:0.5rem;">
+                        Physical and Physiological Profiles of Brazilian Jiu-Jitsu Athletes
+                    </a>
+                </li>
+                <li>
+                    <span style="opacity:0.8;">Silva BV et al.</span>
+                    <a href="https://www.sciencedirect.com/science/article/pii/S0765159711000025" target="_blank" style="color:var(--accent); text-decoration:underline; margin-left:0.5rem;">
+                        Estimated Aerobic Power, Muscular Strength and Flexibility in Elite Brazilian Jiu-Jitsu Athletes
+                    </a>
+                </li>
+                <li>
+                    <span style="opacity:0.8;">Peric T et al.</span>
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/41602804/" target="_blank" style="color:var(--accent); text-decoration:underline; margin-left:0.5rem;">
+                        Cognitive Functions and Skill Level in Brazilian Jiu-Jitsu: An Exploratory Study Using Virtual Reality
+                    </a>
+                </li>
+            </ul>
+            <div style="margin-top:1.2rem; padding:1rem; background:rgba(255,255,255,0.06); border-radius:8px; border-left:4px solid var(--accent);">
+                <p style="font-size:0.9rem; opacity:0.9; font-style:italic;">
+                    Esta landing page apresenta benefícios com respaldo científico verificável, 
+                    proporcionando credibilidade e transparência para sua jornada no Jiu-Jitsu.
+                </p>
+            </div>
+        </div>
+
+        <!-- Botão (mantido inalterado) -->
+        <div class="btn-center" style="margin-top:2rem;">
+            <a href="https://www.atletis.com.br/jiu-jitsu" target="_blank" class="btn-link">
+                Quero saber mais →
+            </a>
+        </div>
+    `;
+}
 // ==================================================
 // 6. ROTEADOR
 // ==================================================
