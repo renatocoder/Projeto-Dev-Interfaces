@@ -784,3 +784,39 @@ a {
         padding: 1.5rem 1rem;
     }
 }
+/* ============================================
+   BENEFÍCIOS CIENTÍFICOS - ESTILOS ADICIONAIS
+   ============================================ */
+.benefit-item {
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.benefit-item:hover {
+    transform: translateX(6px);
+    box-shadow: var(--shadow-hover);
+}
+
+.benefit-item a {
+    transition: opacity var(--transition);
+}
+
+.benefit-item a:hover {
+    opacity: 0.7;
+}
+
+/* Responsivo para os benefícios científicos */
+@media (max-width: 600px) {
+    .benefit-item div[style*="display:flex"] {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    .benefit-item div[style*="display:flex"] div[style*="font-size:3rem"] {
+        font-size: 2.5rem !important;
+    }
+
+    .benefit-item .referencias-links {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+}
